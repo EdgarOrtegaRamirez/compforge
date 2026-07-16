@@ -1,0 +1,13 @@
+# Binaries
+compforge
+
+# Build directory
+bin/
+
+# Test coverage
+coverage.out
+coverage.html
+
+# OS
+.DS_Store
+Thumbs.db

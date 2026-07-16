@@ -1,0 +1,75 @@
+# Sample CompForge Specification
+# CLI: mycli
+
+name: mycli
+version: 1.0.0
+description: A sample CLI tool for testing
+
+options:
+  - name: verbose
+    shorthand: v
+    description: Enable verbose output
+  - name: quiet
+    shorthand: q
+    description: Suppress non-essential output
+
+commands:
+  - name: build
+    description: Build the project
+    options:
+      - name: target
+        description: Build target
+        choices: [debug, release, profile]
+      - name: parallel
+        type: bool
+        description: Build in parallel
+    subcommands:
+      - name: all
+        description: Build all targets
+      - name: deps
+        description: Build dependencies only
+
+  - name: test
+    description: Run tests
+    options:
+      - name: coverage
+        type: bool
+        description: Generate coverage report
+      - name: tags
+        description: Run tests with tags
+      - name: timeout
+        description: Test timeout in seconds
+        default: "30"
+
+  - name: deploy
+    description: Deploy the application
+    options:
+      - name: environment
+        description: Target environment
+        choices: [staging, production]
+      - name: force
+        shorthand: f
+        type: bool
+        description: Force deployment without confirmation
+    args:
+      - name: version
+        description: Version to deploy
+        optional: true
+
+  - name: config
+    description: Manage configuration
+    aliases: [cfg, conf]
+    subcommands:
+      - name: show
+        description: Show current configuration
+      - name: set
+        description: Set a configuration value
+        args:
+          - name: key
+            description: Configuration key
+          - name: value
+            description: Configuration value
+
+  - name: version
+    description: Show version information
+    aliases: [v, ver]

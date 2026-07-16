@@ -1,0 +1,22 @@
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gofmt
+    - goimports
+    - revive
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  gofmt:
+    simplify: true
+  revive:
+    rules:
+      - name: exported
+        disabled: false

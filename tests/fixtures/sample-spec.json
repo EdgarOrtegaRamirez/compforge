@@ -1,0 +1,40 @@
+{
+  "name": "mycli",
+  "version": "1.0.0",
+  "description": "A sample CLI tool for testing",
+  "commands": [
+    {
+      "name": "build",
+      "description": "Build the project",
+      "options": [
+        {"name": "target", "description": "Build target", "choices": ["debug", "release", "profile"]},
+        {"name": "parallel", "type": "bool", "description": "Build in parallel"}
+      ],
+      "subcommands": [
+        {"name": "all", "description": "Build all targets"},
+        {"name": "deps", "description": "Build dependencies only"}
+      ]
+    },
+    {
+      "name": "test",
+      "description": "Run tests",
+      "options": [
+        {"name": "coverage", "type": "bool", "description": "Generate coverage report"},
+        {"name": "timeout", "default": "30", "description": "Test timeout in seconds"}
+      ]
+    },
+    {
+      "name": "deploy",
+      "description": "Deploy the application",
+      "options": [
+        {"name": "environment", "choices": ["staging", "production"]},
+        {"name": "force", "shorthand": "f", "type": "bool"}
+      ]
+    },
+    {
+      "name": "version",
+      "description": "Show version information",
+      "aliases": ["v", "ver"]
+    }
+  ]
+}
