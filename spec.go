@@ -15,11 +15,11 @@ import (
 type CompletionFormat string
 
 const (
-	FormatBash        CompletionFormat = "bash"
-	FormatZsh         CompletionFormat = "zsh"
-	FormatFish        CompletionFormat = "fish"
-	FormatPowerShell  CompletionFormat = "powershell"
-	FormatAll         CompletionFormat = "all"
+	FormatBash       CompletionFormat = "bash"
+	FormatZsh        CompletionFormat = "zsh"
+	FormatFish       CompletionFormat = "fish"
+	FormatPowerShell CompletionFormat = "powershell"
+	FormatAll        CompletionFormat = "all"
 )
 
 // ParseCompletionFormat parses a string into a CompletionFormat.
@@ -43,13 +43,13 @@ func ParseCompletionFormat(s string) (CompletionFormat, error) {
 
 // CLICommand represents a command in the CLI specification.
 type CLICommand struct {
-	Name        string     `json:"name"`
-	Description string     `json:"description,omitempty"`
-	Aliases     []string   `json:"aliases,omitempty"`
-	Options     []CLIOption `json:"options,omitempty"`
+	Name        string       `json:"name"`
+	Description string       `json:"description,omitempty"`
+	Aliases     []string     `json:"aliases,omitempty"`
+	Options     []CLIOption  `json:"options,omitempty"`
 	SubCommands []CLICommand `json:"subcommands,omitempty"`
-	Args        []CLIArg   `json:"args,omitempty"`
-	Requires    []string   `json:"requires,omitempty"`
+	Args        []CLIArg     `json:"args,omitempty"`
+	Requires    []string     `json:"requires,omitempty"`
 }
 
 // CLIOption represents an option/flag for a command.

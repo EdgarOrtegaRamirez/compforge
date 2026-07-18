@@ -239,14 +239,14 @@ func TestSpec_Validate(t *testing.T) {
 			expectCount: 2, // name is required + version recommended
 		},
 		{
-			name: "no version",
-			spec: &Spec{Name: "test"},
+			name:        "no version",
+			spec:        &Spec{Name: "test"},
 			expectCount: 1, // version recommended
 		},
 		{
 			name: "empty command name",
 			spec: &Spec{
-				Name: "test",
+				Name:     "test",
 				Commands: []CLICommand{{}},
 			},
 			expectCount: 2, // name required + version recommended
